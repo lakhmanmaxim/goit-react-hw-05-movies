@@ -1,0 +1,35 @@
+.nav_link {
+  margin-right: 20px;
+  color: red;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav_link:global(.active) {
+  font-weight: bold;
+}
+
+/* .trending_list {
+ list-style: none;
+} */
+
+.trending_title {
+  margin-bottom: 25px;
+}
+
+.trending_list_item {
+  margin-bottom: 10px;
+}
+
+.trending_link {
+  color: black;
+}
+
+/* DNA loader spinner  */
+.dna_wrapper {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
