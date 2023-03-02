@@ -15,3 +15,8 @@ export const trendingMovies = async () => {
 
   return data;
 };
+
+export const getSingleMovie = async (id) => {
+  const { data} = await instance.get(`/movie/${id}`);
+  return data;
+}

@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 
-const MoviesListItem = ({ title }) => {
+const MoviesListItem = ({ id, title }) => {
   return (
-    <li className={styles.trending_list_item}>
-      <Link className={styles.trending_link} href="">
-        {title}
-      </Link>
-    </li>
+    <Link className={styles.trending_link} to={`/movies/${id}`}>
+      <li className={styles.trending_list_item}>{title}</li>
+    </Link>
   );
 };
 

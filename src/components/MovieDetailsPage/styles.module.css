@@ -1,0 +1,43 @@
+h1, h2, p, li, div {
+    margin: 0;
+    padding: 0;
+}
+
+
+.title {
+margin-top: 10px;
+
+    font-size: 24px;
+    text-align: center;
+}
+
+.img {
+    display: block;
+}
+
+.wrapper {
+    /* margin-left: auto;
+    margin-right: auto; */
+    display: flex;
+    padding: 25px;
+    /* max-width: 600px; */
+}
+
+.textWrapper {
+max-width: 800px;
+}
+
+.text {
+    margin-left: 20px;
+    font-size: 16px;
+
+    margin-bottom: 30px;
+}
+
+.textAbout {
+    font-weight: 700;
+    font-size: 20px;
+    margin-left: 20px;  
+
+    margin-bottom: 10px;
+}

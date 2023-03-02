@@ -9,7 +9,7 @@ const MoviesList = ({ items }) => {
       <ul className={styles.trending_list}>
         <h2 className={styles.trending_title}>Trending movies of the week</h2>
         {items.map(({ id, title }) => (
-          <MoviesListItem key={id} title={title} />
+          <MoviesListItem key={id} id={id} title={title} />
         ))}
       </ul>
     </>
