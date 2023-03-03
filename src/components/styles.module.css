@@ -9,19 +9,24 @@
   font-weight: bold;
 }
 
-/* .trending_list {
- list-style: none;
-} */
+.trending_list {
+  list-style: none;
+
+  display: inline-flex;
+  flex-direction: column;
+}
 
 .trending_title {
   margin-bottom: 25px;
 }
 
 .trending_list_item {
+  /* display: inline; */
   margin-bottom: 10px;
 }
 
 .trending_link {
+  /* display: inline; */
   color: black;
 }
 

@@ -1,7 +1,7 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
-import { getSingleMovie } from 'shared/api/api';
+import { getMovieDetails } from 'shared/api/api';
 
 import styles from './styles.module.css';
 
@@ -20,7 +20,7 @@ const MovieDetails = () => {
     // }
     // fetchMovie();
 
-    getSingleMovie(id)
+    getMovieDetails(id)
       .then(data => {
         setMovie(data);
       })
@@ -51,7 +51,7 @@ const MovieDetails = () => {
           </ul>
         </div>
       </div>
-      <div>
+      {/* <div>
         <ul>
           <Link to="/movies/cast">
             <li>Cast</li>
@@ -60,7 +60,7 @@ const MovieDetails = () => {
             <li>Reviews</li>
           </Link>
         </ul>
-      </div>
+      </div> */}
     </>
   );
 };
