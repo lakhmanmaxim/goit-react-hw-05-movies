@@ -1,7 +1,7 @@
-import TrandingMovies from 'components/TrandingMovies/TrandingMovies';
+import TrandingMoviesPage from 'components/TrandingMoviesPage/TrandingMoviesPage';
 
 const HomePage = () => {
-  return <TrandingMovies />;
+  return <TrandingMoviesPage />;
 };
 
 export default HomePage;

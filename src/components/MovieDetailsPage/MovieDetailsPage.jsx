@@ -1,13 +1,14 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { getMovieDetails } from 'shared/api/api';
 
 import styles from './styles.module.css';
 
-const MovieDetails = () => {
+const MovieDetailsPage = () => {
   const [movie, setMovie] = useState([]);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     // const fetchMovie = async () => {
@@ -31,6 +32,7 @@ const MovieDetails = () => {
 
   return (
     <>
+      <button onClick={() => navigate(-1)}>Go back</button>
       <h1 className={styles.title}>{movie.title}</h1>
       <div className={styles.wrapper}>
         <img
@@ -51,18 +53,19 @@ const MovieDetails = () => {
           </ul>
         </div>
       </div>
-      {/* <div>
+      <div>
         <ul>
-          <Link to="/movies/cast">
+          <Link to="cast">
             <li>Cast</li>
           </Link>
-          <Link to="/movies/Reviews">
+          <Link to="reviews">
             <li>Reviews</li>
           </Link>
+          <Outlet />
         </ul>
-      </div> */}
+      </div>
     </>
   );
 };
 
-export default MovieDetails;
+export default MovieDetailsPage;

@@ -20,3 +20,18 @@ export const getMovieDetails = async id => {
   const { data } = await instance.get(`/movie/${id}`);
   return data;
 };
+
+export const searchMovie = async query => {
+  const { data } = await instance.get(`/search/movie?query=${query}`);
+  return data;
+};
+
+export const searchMovieIdCast = async id => {
+  const { data } = await instance.get(`/movie/${id}/credits`);
+  return data;
+};
+
+export const searchMovieIdReviews = async id => {
+  const { data } = await instance.get(`/movie/${id}/reviews`);
+  return data;
+};

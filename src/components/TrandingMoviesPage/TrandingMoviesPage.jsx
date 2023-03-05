@@ -4,7 +4,7 @@ import MoviesList from '../MoviesList/MoviesList';
 import Loader from '../../shared/Loader/LoaderSpinner';
 import { trendingMovies } from '../../shared/api/api';
 
-const TrandingMovies = () => {
+const TrandingMoviesPage = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -31,4 +31,4 @@ const TrandingMovies = () => {
   );
 };
 
-export default TrandingMovies;
+export default TrandingMoviesPage;
