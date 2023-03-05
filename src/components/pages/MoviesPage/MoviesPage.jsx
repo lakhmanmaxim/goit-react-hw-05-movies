@@ -10,10 +10,10 @@ import styles from './styles.module.css';
 const MoviesPage = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const [searchParams] = useSearchParams();
   const search = searchParams.get('search');
+  console.log(search);
 
   useEffect(() => {
     if (!search) {
@@ -28,10 +28,12 @@ const MoviesPage = () => {
         setLoading(false);
       })
       .catch(error => {
-        setError(error.message);
+        console.log(error.message);
       })
       .finally(() => setLoading(false));
   }, [search]);
+
+  console.log(items);
 
   return (
     <>
@@ -57,7 +59,7 @@ const MoviesPage = () => {
       {items.length === 0 && (
         <p className={styles.search_text}>Please, enter your request</p>
       )}
-      {items.length > 0 && <MoviesSearchList items={items} error={error} />}
+      {items.length > 0 && <MoviesSearchList items={items} />}
     </>
   );
 };
