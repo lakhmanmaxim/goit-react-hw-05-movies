@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
+import SearchBar from "../../SearchBar/SearchBar"
 import Loader from '../../../shared/Loader/LoaderSpinner';
 import { searchMovie } from '../../../shared/api/api';
 import MoviesSearchList from '../../MovieSearchList/MovieSearchList';
@@ -32,9 +33,9 @@ const MoviesPage = () => {
       .finally(() => setLoading(false));
   }, [search]);
 
-  const onFormSubmit = ({ target }) => {
-    // evt.preventDefault();
+  const onFormSubmit = ({ search }) => {
     setSearchParams({ search });
+    // console.log(search);
   };
 
   // console.log(items);
@@ -42,21 +43,7 @@ const MoviesPage = () => {
   return (
     <>
       <header className={styles.searchbar}>
-        <form className={styles.searchForm} onSubmit={onFormSubmit}>
-          <button type="submit" className={styles.searchForm_button}>
-            <span className={styles.searchForm_button_label}>Search</span>
-          </button>
-
-          <input
-            name="search"
-            className={styles.searchForm_input}
-            type="text"
-            autoComplete="off"
-            autoFocus
-            placeholder="Search movies"
-            required
-          />
-        </form>
+      <SearchBar onSubmit={onFormSubmit}/>
       </header>
 
       {loading && <Loader />}
