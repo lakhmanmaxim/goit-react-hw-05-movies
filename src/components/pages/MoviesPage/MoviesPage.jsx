@@ -11,9 +11,8 @@ const MoviesPage = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get('search');
-  console.log(search);
 
   useEffect(() => {
     if (!search) {
@@ -33,12 +32,17 @@ const MoviesPage = () => {
       .finally(() => setLoading(false));
   }, [search]);
 
-  console.log(items);
+  const onFormSubmit = ({ target }) => {
+    // evt.preventDefault();
+    setSearchParams({ search });
+  };
+
+  // console.log(items);
 
   return (
     <>
       <header className={styles.searchbar}>
-        <form className={styles.searchForm}>
+        <form className={styles.searchForm} onSubmit={onFormSubmit}>
           <button type="submit" className={styles.searchForm_button}>
             <span className={styles.searchForm_button_label}>Search</span>
           </button>

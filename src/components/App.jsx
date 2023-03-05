@@ -4,8 +4,8 @@ import NavBar from './NavBar/NavBar';
 import HomePage from './pages/HomePage/HomePage';
 import MoviesPage from './pages/MoviesPage/MoviesPage';
 import MovieDetailsPage from './MovieDetailsPage/MovieDetailsPage';
-import SingleMovieCastPage from "./pages/SingleMovieCastPage/SingleMovieCastPage"
-import SingleMovieReviewsPage from "./pages/SingleMovieReviewsPage/SingleMovieReviewsPage"
+import SingleMovieCastPage from './pages/SingleMovieCastPage/SingleMovieCastPage';
+import SingleMovieReviewsPage from './pages/SingleMovieReviewsPage/SingleMovieReviewsPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="/movies" element={<MoviesPage />} />
         <Route path="/movies/:id" element={<MovieDetailsPage />}>
           <Route path="cast" element={<SingleMovieCastPage />} />
-          <Route path="reviews" element={ <SingleMovieReviewsPage />} />
+          <Route path="reviews" element={<SingleMovieReviewsPage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
