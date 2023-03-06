@@ -21,13 +21,13 @@ const SingleMovieReviewsPage = () => {
 
   return (
     <ul className={styles.list}>
-      {movie.results &&
-        movie.results.map(item => (
+      {movie.total_results ?
+        (movie.results.map(item => (
           <li className={styles.list_item} key={item.id}>
             <span className={styles.author}>{item.author}</span>
             {item.content}
           </li>
-        ))}
+        ))) : (<p>There are currently no reviews...Sorry</p>)}
     </ul>
   );
 };

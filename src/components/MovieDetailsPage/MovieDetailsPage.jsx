@@ -1,4 +1,10 @@
-import { useParams, useNavigate, Link, Outlet } from 'react-router-dom';
+import {
+  useParams,
+  useNavigate,
+  Link,
+  Outlet,
+  useLocation,
+} from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 import { getMovieDetails } from 'shared/api/api';
@@ -10,17 +16,10 @@ const MovieDetailsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    // const fetchMovie = async () => {
-    //     try {
-    //         const result = await getSingleMovie(id);
-    //         setMovie(result);
-    //     } catch ({response}) {
-    //         console.log(response.data.message);
-    //     }
-    // }
-    // fetchMovie();
+  const location = useLocation();
+  const from = location.state?.from || "/";
 
+  useEffect(() => {
     getMovieDetails(id)
       .then(data => {
         setMovie(data);
@@ -30,9 +29,11 @@ const MovieDetailsPage = () => {
       });
   }, [id]);
 
+  const goBack = () => navigate(from);
+
   return (
     <>
-      <button onClick={() => navigate(-1)}>Go back</button>
+      <button onClick={goBack}>Go back</button>
       <h1 className={styles.title}>{movie.title}</h1>
       <div className={styles.wrapper}>
         <img
@@ -55,10 +56,10 @@ const MovieDetailsPage = () => {
       </div>
       <div>
         <ul>
-          <Link to="cast">
+          <Link to="cast" state={{ from }}>
             <li>Cast</li>
           </Link>
-          <Link to="reviews">
+          <Link to="reviews" state={{ from }}>
             <li>Reviews</li>
           </Link>
           <Outlet />

@@ -19,8 +19,6 @@ const SingleMovieCastPage = () => {
       });
   }, [id]);
 
-  console.log(movie);
-
   return (
     <ul className={styles.list}>
       {movie &&
