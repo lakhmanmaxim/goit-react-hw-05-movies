@@ -26,7 +26,7 @@ const Loader = lazy(()=>import("../shared/Loader/LoaderSpinner"));
 const App = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <BrowserRouter>
+      <BrowserRouter basename="goit-react-hw-05-movies">
         <NavBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
